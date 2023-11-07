@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questao_a</title>
+</head>
+<body>
+    <header><h1>Promoção de medicamento!</h1></header>
+    <p><input type="text" id="med_id" placeholder="nome do medicamento"></p>
+    <input type="text" id ="preco"placeholder="preço do produto">
+    <input type="button" id="exibir" value="resultado">
+    <p id="resposta"></p>
+    <script>
+        function Mostrar(){
+            let nomeMedicamento = document.getElementById("med_id").value;
+            let precoValor =parseFloat(document.getElementById("preco").value);
+            let valorTotal = parseInt(precoValor*2);
+            document.getElementById("resposta").textContent = "promoção de "+nomeMedicamento+ "  Leve 2 por preço R$: "+valorTotal;
+ 
+
+        }
+        let mostrar = document.getElementById("exibir");
+        mostrar.addEventListener("click",Mostrar);
+
+
+    </script>
+
+</body>
+</html>
