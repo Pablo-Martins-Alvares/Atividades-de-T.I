@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão_B</title>
+</head>
+<body>
+    <header><h1>Promoção de Produto</h1></header>
+    <p><input type="text" id="produto" placeholder="nome do produto"></p>
+    <p><input type="number" id="preco" placeholder="preço do produto"></p>
+    <input type="button" id="exibir" value="Calcular Promoção">
+    <p id="resultado"></p>
+    
+    <script>
+        function CalcularPromocao() {
+            const nomeProduto = document.getElementById("produto").value;
+            const valorPreco = parseFloat(document.getElementById("preco").value);
+            const precoPromocional = valorPreco * 2 + valorPreco / 2;
+
+            document.getElementById("resultado").textContent = `Promoção de ${nomeProduto} - Leve 3 por R$ ${precoPromocional.toFixed(2)}. O 3º produto custa apenas R$ ${(valorPreco / 2).toFixed(2)}`;
+        }
+
+        let mostrar = document.getElementById("exibir");
+        mostrar.addEventListener("click", CalcularPromocao);
+    </script>
+</body>
+</html>
