@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversor de Hora para a França</title>
+</head>
+<body>
+    <h1>Conversor de Hora para a França</h1>
+    
+    <label for="horaBrasil">Hora no Brasil (HH.MM):</label>
+    <input type="text" id="horaBrasil"><br>
+
+    <button onclick="converterHora()">Converter</button>
+
+    <p id="horaFranca"></p>
+
+    <script>
+        function converterHora() {
+            var horaBrasil = document.getElementById("horaBrasil").value;
+            var regexHora = /^([01]?[0-9]|2[0-3])\.[0-5][0-9]$/; // Expressão regular para validar o formato HH.MM
+
+            if (regexHora.test(horaBrasil)) {
+                var partesHora = horaBrasil.split(".");
+                var hora = parseInt(partesHora[0]);
+                var minutos = parseInt(partesHora[1]);
+
+                // Adiciona 5 horas para considerar o fuso horário da França
+                hora += 5;
+
+                // Verifica se a hora ultrapassa 24, ajustando o dia
+                if (hora >= 24) {
+                    hora -= 24;
+                }
+
+                // Exibe a hora na França
+                var horaFranca = hora.toString().padStart(2, "0") + "." + minutos.toString().padStart(2, "0");
+                document.getElementById("horaFranca").textContent = "Hora na França: " + horaFranca;
+            } else {
+                document.getElementById("horaFranca").textContent = "Formato de hora inválido. Use HH.MM";
+            }
+        }
+    </script>
+</body>
+</html>
